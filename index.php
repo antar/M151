@@ -39,8 +39,8 @@
         <label for="department">Department:</label>
         <input type="text" id="department" name="department" required><br>
 
-        <label for="jobname">Job Name:</label>
-        <input type="text" id="jobname" name="jobname" required><br>
+        <label for="jobtitle">Job Title:</label>
+        <input type="text" id="jobtitle" name="jobtitle" required><br>
 
         <label for="jobdesc">Job Description:</label>
         <input type="text" id="jobdesc" name="jobdesc"><br>        
