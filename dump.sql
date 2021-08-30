@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `DATA` (
 	`personal` INT NOT NULL,
 	`telephone` TEXT,
 	`company` TEXT NOT NULL,
-	`department` TEXT NOT NULL UNIQUE,
+	`department` TEXT NOT NULL,
 	`jobtitle` TEXT NOT NULL,
 	`jobdesc` TEXT DEFAULT '',	
 	PRIMARY KEY (`id`)
