@@ -1,4 +1,5 @@
 <?php
+
 $firstname =  $_POST["firstname"];
 $lastname = $_POST["lastname"];
 $birthday = $_POST["birthday"];
@@ -11,19 +12,9 @@ $department =  $_POST["department"];
 $jobname = $_POST["jobname"];
 $jobdesc = $_POST["jobdesc"];
 
-$sql="INSERT INTO DATA (
-firstname,
-lastname,
-birthday,
-email,
-ahv,
-personal,
-telephone,
-company,
-department,
-jobname,
-jobdesc)
-VALUES ('$firstname',  '$lastname',  '$birthday',  '$email',  '$ahv',     
-'$ahv', '$personal', '$telephone', '$company', '$department',  '$jobname', '$jobdesc')";
+$pdo = require_once 'connect.php';
+$stmt = $pdo->prepare("CALL insert(?)");
+$stmt->bindParam(1, $firstname, $lastname, $birthday, $email, $ahv, $personal, $telephone, $company, $department, $jobname, $jobdesc, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 4000);
+$stmt->execute();
 
 ?>
