@@ -1,22 +1,51 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <title>M151</title>
+
+    <style>
+        form label, form input {
+            margin: 3px 0 3px 0;
+        }
+    </style>
+</head>
 <body>
+    <h1>Welcome to M151!</h1>
+    <form action="" method="post">
+        <label for="firstname">Firstname:</label>
+        <input type="text" id="firstname" name="firstname" required><br>
 
-<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-  Name: <input type="text" name="fname">
-  <input type="submit">
-</form>
+        <label for="lastname">Lastname:</label>
+        <input type="text" id="lastname" name="lastname" required><br>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // collect value of input field
-  $name = $_POST['fname'];
-  if (empty($name)) {
-    echo "Name is empty";
-  } else {
-    echo $name;
-  }
-}
-?>
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday" required><br>
 
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="ahv">AHV-Nummer:</label>
+        <input type="text" id="ahv" name="ahv" required pattern="^\s*\d{3}.\d{4}.\d{4}.\d{2}\s*$" title="Must match 'www.xxxx.yyyy.zz' pattern"><br>
+
+        <label for="personal">Personal Number:</label>
+        <input type="number" id="personal" name="personal" required><br>
+
+        <label for="telephone">Telephone:</label>
+        <input type="tel" id="telephone" name="telephone"><br>
+
+        <label for="company">Company Name:</label>
+        <input type="text" id="company" name="company" required><br>
+
+        <label for="department">Department:</label>
+        <input type="text" id="department" name="department" required><br>
+
+        <label for="jobname">Job Name:</label>
+        <input type="text" id="jobname" name="jobname" required><br>
+
+        <label for="jobdesc">Job Description:</label>
+        <input type="text" id="jobdesc" name="jobdesc"><br>        
+        
+        <input type="submit">
+    </form>
 </body>
 </html>
