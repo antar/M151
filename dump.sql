@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `DATA` (
 	`id` SERIAL,
 	`lastname` TEXT NOT NULL,
 	`firstname` TEXT NOT NULL,
-	`birthday` TEXT NOT NULL,
+	`birthday` DATE NOT NULL,
 	`email` TEXT,
 	`ahv` TEXT NOT NULL UNIQUE,
 	`personal` INT NOT NULL,
