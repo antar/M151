@@ -16,7 +16,7 @@ $jobtitle = $_POST["jobtitle"];
 $jobdesc = $_POST["jobdesc"];
 
 $stmt = $conn->prepare("CALL insert(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
-$stmt->bind_param('sssssssssss', $firstname, $lastname, $birthday, $email, $ahv, $personal, $telephone, $company, $department, $jobtitle, $jobdesc);
+$stmt->bind_param('ssbssisssss', $firstname, $lastname, $birthday, $email, $ahv, $personal, $telephone, $company, $department, $jobtitle, $jobdesc);
 $stmt->execute();
 
 }
