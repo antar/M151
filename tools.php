@@ -1,7 +1,7 @@
 <?php
 
 class Tools {
-    public static function CallProc($proc_name, $params, $db) {
+    public static function CallProc($db, $proc_name, $params = []) {
         $params_string = "";
         $keys = array_keys($params);
 
@@ -20,6 +20,8 @@ class Tools {
         }
 
         $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 }
 
