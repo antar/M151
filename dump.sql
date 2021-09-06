@@ -19,10 +19,11 @@ CREATE TABLE IF NOT EXISTS `data` (
 	PRIMARY KEY (`id`)
 );
 
+
+-- mysql_insert
 DROP PROCEDURE IF EXISTS `mysql_insert`;
 
 DELIMITER //
-
 CREATE PROCEDURE `mysql_insert`(
 	IN `firstname` text,
 	IN `lastname` text,
@@ -36,7 +37,7 @@ CREATE PROCEDURE `mysql_insert`(
 	IN `jobtitle` text,
 	IN `jobdesc` text
 )
- BEGIN
+BEGIN
   INSERT INTO 
 		`data` (
 			`firstname`, 
@@ -64,7 +65,38 @@ CREATE PROCEDURE `mysql_insert`(
 			jobtitle,
 			jobdesc
 		);
- END;
+	END;
 //
+DELIMITER ;
 
+
+-- mysql_select
+DROP PROCEDURE IF EXISTS `mysql_select`;
+
+DELIMITER //
+CREATE PROCEDURE `mysql_select`()
+BEGIN
+	SELECT * FROM `data`;
+END;
+//
+DELIMITER ;
+
+-- mysql_update
+DROP PROCEDURE IF EXISTS `mysql_update`;
+
+DELIMITER //
+CREATE PROCEDURE `mysql_update`(
+	IN `id` int,
+	IN `col` text,
+	IN `val` text
+)
+BEGIN
+	UPDATE
+		`data`
+	SET
+		col = val
+	WHERE
+		`id` = id;
+END;
+//
 DELIMITER ;
