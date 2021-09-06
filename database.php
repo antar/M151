@@ -1,11 +1,15 @@
 <?php
 
-try {
-  $conn = new PDO("mysql:host=127.0.0.1;dbname=M151", "root", "");
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Connected successfully";
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
+class Database {
+  private $host="127.0.0.1";
+  private $user="root";
+  private $db="M151";  
+  private $pass="getElementById()";
+  private $conn;
+  
+  public function __construct() {      
+    $this->conn = new PDO("mysql:host=".$this->host.";dbname=".$this->db,$this->user,$this->pass);   
+  }
 }
+
 ?>

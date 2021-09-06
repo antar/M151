@@ -1,7 +1,10 @@
 <?php
 
+require_once("database.php");
+
+$db = new Database;
+
 if (isset($_POST['submit'])) {
-$conn = new PDO("mysql:host=127.0.0.1;dbname=M151", "root", "getElementById()");
 
 $firstname =  $_POST["firstname"];
 $lastname = $_POST["lastname"];
@@ -15,7 +18,7 @@ $department =  $_POST["department"];
 $jobtitle = $_POST["jobtitle"];
 $jobdesc = $_POST["jobdesc"];
 
-$stmt = $conn->prepare("CALL insert(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
+$stmt = $db->prepare("CALL insert(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
 $stmt->bind_param('ssbssisssss', $firstname, $lastname, $birthday, $email, $ahv, $personal, $telephone, $company, $department, $jobtitle, $jobdesc);
 $stmt->execute();
 
