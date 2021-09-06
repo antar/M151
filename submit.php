@@ -20,7 +20,7 @@ $array = [
 	"jobdesc" => $_POST["jobdesc"]
 ];
 
-Tools::CallProc("CALL mysql_insert", $array, $db);
+Tools::CallProc($db, "CALL mysql_insert", $array);
 
 ?>
 
@@ -34,7 +34,7 @@ Tools::CallProc("CALL mysql_insert", $array, $db);
 		<h1 class="mb-5 text-center">Welcome to M151!</h1>
 		<form action="submit.php" method="POST">            
 			<label for="firstname">Firstname:</label>
-			<input type="text" class="form-control" id="firstname" name="firstname" value="<?php $_POST["firstname"] ?>" required><br>
+			<input type="text" class="form-control" id="firstname" name="firstname" value="<?PHP $_POST["firstname"] ?>" required><br>
 
 			<label for="lastname">Lastname:</label>
 			<input type="text" class="form-control" id="lastname" name="lastname" value="<?php $_POST["lastname"] ?>" required><br>
