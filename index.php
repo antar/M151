@@ -12,7 +12,7 @@
 <body>
     <div align="center">
     <h1>Welcome to M151!</h1>
-        <form action="submit.php" method="post">
+        <form action="submit.php" method="POST">
             <label for="firstname">Firstname:</label>
             <input type="text" id="firstname" name="firstname" required><br>
         

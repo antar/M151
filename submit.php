@@ -1,25 +1,26 @@
 <?php
 
 require_once("database.php");
+require_once("tools.php");
 
-$db = new Database();
+$obj = new Database();
+$db = $obj->GetPDO();
 
-if (isset($_POST['submit'])) {
 
-	$array = [
-		"firstname" =>  $_POST["firstname"],
-		"lastname" => $_POST["lastname"],
-		"birthday" => $_POST["birthday"],
-		"email" => $_POST["email"],
-		"ahv" => $_POST["ahv"],
-		"personal" => $_POST["personal"],
-		"telephone" => $_POST["telephone"],
-		"company" => $_POST["company"],
-		"department" =>  $_POST["department"],
-		"jobtitle" => $_POST["jobtitle"],
-		"jobdesc" => $_POST["jobdesc"],
-	];
+$array = [
+	"firstname" =>  $_POST["firstname"],
+	"lastname" => $_POST["lastname"],
+	"birthday" => $_POST["birthday"],
+	"email" => $_POST["email"],
+	"ahv" => $_POST["ahv"],
+	"personal" => $_POST["personal"],
+	"telephone" => $_POST["telephone"],
+	"company" => $_POST["company"],
+	"department" =>  $_POST["department"],
+	"jobtitle" => $_POST["jobtitle"],
+	"jobdesc" => $_POST["jobdesc"],
+];
 
-	$result = Tools::CallProc("CALL func_insert", $array, $db);
-}
+Tools::CallProc("CALL func_insert", $array, $db);
+
 ?>
