@@ -18,7 +18,7 @@ $array = [
 	"company" => $_POST["company"],
 	"department" =>  $_POST["department"],
 	"jobtitle" => $_POST["jobtitle"],
-	"jobdesc" => $_POST["jobdesc"],
+	"jobdesc" => $_POST["jobdesc"]
 ];
 
 Tools::CallProc("CALL mysql_insert", $array, $db);
