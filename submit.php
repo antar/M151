@@ -20,7 +20,7 @@ $array = [
 	"jobdesc" => $_POST["jobdesc"],
 ];
 
-Tools::CallProc("CALL func_insert", $array, $db);
+Tools::CallProc("CALL mysql_insert", $array, $db);
 
 ?>
 
