@@ -18,3 +18,53 @@ CREATE TABLE IF NOT EXISTS `data` (
 	`jobdesc` TEXT DEFAULT '',	
 	PRIMARY KEY (`id`)
 );
+
+DROP PROCEDURE IF EXISTS `mysql_insert`;
+
+DELIMITER //
+
+CREATE PROCEDURE `mysql_insert`(
+	IN `firstname` text,
+	IN `lastname` text,
+	IN `birthday` date,
+	IN `email` text,
+	IN `ahv` text,
+	IN `personal` int,
+	IN `telephone` text,
+	IN `company` text,
+	IN `department` text,
+	IN `jobtitle` text,
+	IN `jobdesc` text
+)
+ BEGIN
+  INSERT INTO 
+		`data` (
+			`firstname`, 
+			`lastname`, 
+			`birthday`, 
+			`email`, 
+			`ahv`, 
+			`personal`, 
+			`telephone`, 
+			`company`, 
+			`department`, 
+			`jobtitle`, 
+			`jobdesc`
+			)
+		VALUES (
+			firstname,
+			lastname,
+			birthday,
+			email,
+			ahv,
+			personal,
+			telephone,
+			company,
+			department,
+			jobtitle,
+			jobdesc
+		);
+ END;
+//
+
+DELIMITER ;
