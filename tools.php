@@ -18,6 +18,8 @@ class Tools {
         foreach ($keys as $key) {
             $stmt->bindParam(":" . $key, $params[$key]);
         }
+
+        $stmt->execute();
     }
 }
 
