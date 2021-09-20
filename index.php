@@ -26,6 +26,7 @@ $data = Tools::CallProc($db, "CALL mysql_get");
 
 // Insert Data To Database
 if(array_key_exists('create_proc', $_POST)) {
+    Tools::CallProc($db, "CALL mysql_drop");
     Tools::CallProc($db, "CALL mysql_insert", $array);
     header("Refresh:0");
 }
