@@ -32,43 +32,21 @@ Tools::CallProc($db, "CALL mysql_insert", $array);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="container">    
-		<h1 class="mb-5 text-center">Welcome to M151!</h1>
-		<form action="submit.php" method="POST">            
-			<label for="firstname">Firstname:</label>
-			<input type="text" class="form-control" id="firstname" name="firstname" value="<?= $_POST["firstname"] ?>" required><br>
+	<div class="container">
+		<h1>Your Data:</h1>
+		<p><?php echo $_POST["firstname"]?></p>
+		<p><?php echo $_POST["lastname"]?></p>
+		<p><?php echo $_POST["birthday"]?></p>
+		<p><?php echo $_POST["email"]?></p>
+		<p><?php echo $_POST["ahv"]?></p>
+		<p><?php echo $_POST["personal"]?></p>
+		<p><?php echo $_POST["telephone"]?></p>
+		<p><?php echo $_POST["company"]?></p>
+		<p><?php echo $_POST["jobtitle"]?></p>
+		<p><?php echo $_POST["jobdesc"]?></p>
 
-			<label for="lastname">Lastname:</label>
-			<input type="text" class="form-control" id="lastname" name="lastname" value="<?= $_POST["lastname"] ?>" required><br>
+		<a href="/M151" class="btn btn-primary" role="button">Edit</a>
 
-			<label for="birthday">Birthday:</label>
-			<input type="date" class="form-control" id="birthday" name="birthday" value="<?= $_POST["birthday"] ?>" required><br>
-
-			<label for="email">E-Mail:</label>
-			<input type="email" class="form-control" id="email" name="email" value="<?= $_POST["email"] ?>"><br>
-
-			<label for="ahv">AHV-Nummer:</label>
-			<input type="text" class="form-control" id="ahv" name="ahv" value="<?= $_POST["ahv"] ?>" required pattern="^\s*\d{3}.\d{4}.\d{4}.\d{2}\s*$" title="Must match 'www.xxxx.yyyy.zz' pattern"><br>
-
-			<label for="personal">Personal Number:</label>
-			<input type="number" class="form-control" id="personal" value="<?= $_POST["personal"] ?>" name="personal" required><br>
-
-			<label for="telephone">Telephone:</label>
-			<input type="tel" class="form-control" id="telephone" value="<?= $_POST["telephone"] ?>" name="telephone"><br>
-
-			<label for="company">Company Name:</label>
-			<input type="text" class="form-control" id="company" name="company" value="<?= $_POST["company"] ?>" required><br>
-
-			<label for="department">Department:</label>
-			<input type="text" class="form-control" id="department" name="department" value="<?= $_POST["department"] ?>" required><br>
-
-			<label for="jobtitle">Job Title:</label>
-			<input type="text" class="form-control" id="jobtitle" name="jobtitle" value="<?= $_POST["jobtitle"] ?>" required><br>
-
-			<label for="jobdesc">Job Description:</label>
-			<input type="text" class="form-control" id="jobdesc" name="jobdesc" value="<?= $_POST["jobdesc"] ?>"><br>     
-
-			<input type="submit" value="Edit" class="btn btn-primary">
-		</form>
+	</div>
 </body>
 </html>
