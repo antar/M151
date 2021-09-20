@@ -1,10 +1,39 @@
 <?php
 
+error_reporting(E_ERROR | E_PARSE);
+
 require_once("database.php");
 require_once("tools.php");
 
 $obj = new Database();
 $db = $obj->GetPDO();
+
+$array = [
+    "firstname" =>  $_POST["firstname"],
+    "lastname" => $_POST["lastname"],
+    "birthday" => $_POST["birthday"],
+    "email" => $_POST["email"],
+    "ahv" => $_POST["ahv"],
+    "personal" => $_POST["personal"],
+    "telephone" => $_POST["telephone"],
+    "company" => $_POST["company"],
+    "department" =>  $_POST["department"],
+    "jobtitle" => $_POST["jobtitle"],
+    "jobdesc" => $_POST["jobdesc"]
+];
+// Get Data from Database
+$data = Tools::CallProc($db, "CALL mysql_get");
+
+// Insert Data To Database
+if(array_key_exists('create_proc', $_POST)) {
+    Tools::CallProc($db, "CALL mysql_insert", $array);
+}
+
+// Delete Data from Database
+if(array_key_exists('drop_proc', $_POST)) {
+    Tools::CallProc($db, "CALL mysql_drop"); 
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,11 +46,6 @@ $db = $obj->GetPDO();
 <body>
     <div class="container">    
         <h1 class="mb-5 text-center">Welcome to M151!</h1>
-        <div class="mb-5 text-center">
-        <?php 
-            $data = Tools::CallProc($db, "CALL mysql_get"); 
-        ?>
-        </div>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">            
             <label for="firstname">Firstname:</label>
             <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $data[0]['firstname']; ?>" required><br>
@@ -56,25 +80,9 @@ $db = $obj->GetPDO();
             <label for="jobdesc">Job Description:</label>
             <input type="text" class="form-control" id="jobdesc" name="jobdesc" value="<?php echo $data[0]['jobdesc']; ?>"><br>     
 
-            <input type="submit" class="btn btn-primary">            
+            <input type="submit" class="btn btn-primary" name="create_proc" value="Make">  
+            <input type="submit" class="btn btn-primary" name="drop_proc" value="Delete">                        
         </form>
-        <?php
-            $array = [
-                "firstname" =>  $_POST["firstname"],
-                "lastname" => $_POST["lastname"],
-                "birthday" => $_POST["birthday"],
-                "email" => $_POST["email"],
-                "ahv" => $_POST["ahv"],
-                "personal" => $_POST["personal"],
-                "telephone" => $_POST["telephone"],
-                "company" => $_POST["company"],
-                "department" =>  $_POST["department"],
-                "jobtitle" => $_POST["jobtitle"],
-                "jobdesc" => $_POST["jobdesc"]
-            ];
-            
-            Tools::CallProc($db, "CALL mysql_insert", $array);
-        ?>
     </div>
 </body>
 </html>
