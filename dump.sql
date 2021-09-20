@@ -56,3 +56,15 @@ END;
 //
 
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS `mysql_get`;
+
+DELIMITER //
+
+CREATE PROCEDURE `mysql_get`()
+BEGIN
+	SELECT * FROM `data` LIMIT 1;
+END;
+//
+
+DELIMITER ;
