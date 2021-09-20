@@ -68,3 +68,15 @@ END;
 //
 
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS `mysql_drop`;
+
+DELIMITER //
+
+CREATE PROCEDURE `mysql_drop`()
+BEGIN
+	DELETE FROM `data`;
+END;
+//
+
+DELIMITER ;
